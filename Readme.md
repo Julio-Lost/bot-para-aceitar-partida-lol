@@ -13,19 +13,21 @@ Para o projeto na sua máquina, voce irá precisar realizar as seguintes instala
 - [Python](https://www.python.org/)
 - [Pip](https://pypi.org/project/pip/)
 
-- Após instalar os dois, você também irá precisar instalar as seguintes libs:
-  pip install pyautogui
-  pip install opencv-python
+Após instalar os dois, você também irá precisar instalar as seguintes libs:
 
-obs: pode acontecer também de precisar da seguinte instalação:
-pip install Pillow --upgrade
+- pip install pyautogui
+- pip install opencv-python
+
+obs: Pode acontecer também de precisar da seguinte instalação:
+
+- pip install Pillow --upgrade
 
 ## Disparo de email
 
-Para o disparo de email, você precisa habilitar para que apps menos seguros façam o acesso:
+Para o disparo de email, você irá precisa habilitar para que apps menos seguros façam o acesso:
 
-Documentação Google - [Documentação](https://support.google.com/accounts/answer/6010255#zippy=%2Cse-a-op%C3%A7%C3%A3o-acesso-a-app-menos-seguro-estiver-desativada-para-sua-conta%2Cse-a-op%C3%A7%C3%A3o-acesso-a-app-menos-seguro-estiver-ativada-para-sua-conta)
+[Documentação google](https://support.google.com/accounts/answer/6010255#zippy=%2Cse-a-op%C3%A7%C3%A3o-acesso-a-app-menos-seguro-estiver-desativada-para-sua-conta%2Cse-a-op%C3%A7%C3%A3o-acesso-a-app-menos-seguro-estiver-ativada-para-sua-conta)
 
-## Executavel
+## Executável
 
-Também gerei um exe para quem quiser apenas utilizar =D
+Também gerei um executável para quem quiser apenas utilizar =D
