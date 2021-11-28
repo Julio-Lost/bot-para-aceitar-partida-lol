@@ -31,14 +31,14 @@ def enviar_email_de_notificacao(email_de_disparo, senha_do_email_de_disparo, ema
     # adicionando mensagem ao corpo
     msg.attach(MIMEText(MENSAGEM, 'plain'))
 
-    context = ssl.create_default_context()
+    contexto = ssl.create_default_context()
     try:
-        with smtplib.SMTP("smtp.gmail.com", 587) as server:
-            server.ehlo()  # Pode ser omitido
-            server.starttls(context=context)
-            server.ehlo()  # Pode ser omitido
-            server.login(EMAIL_QUE_IRA_DISPARAR, SENHA_DO_EMAIL_DE_DISPARO)
-            server.sendmail(msg['From'], msg['To'], msg.as_string())
+        with smtplib.SMTP("smtp.gmail.com", 587) as servidor:
+            servidor.ehlo()  # Pode ser omitido
+            servidor.starttls(context=contexto)
+            servidor.ehlo()  # Pode ser omitido
+            servidor.login(EMAIL_QUE_IRA_DISPARAR, SENHA_DO_EMAIL_DE_DISPARO)
+            servidor.sendmail(msg['From'], msg['To'], msg.as_string())
     except:
         print('Não foi possível enviar email de notificaçao para "' +
               email_destinatario + '"')
