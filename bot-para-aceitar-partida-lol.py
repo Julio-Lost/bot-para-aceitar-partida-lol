@@ -21,7 +21,7 @@ def enviar_email_de_notificacao(email_de_disparo, senha_do_email_de_disparo, ema
     SENHA_DO_EMAIL_DE_DISPARO = senha_do_email_de_disparo
     MENSAGEM = "Estou passando para avisar, que sua fila foi aceita."
 
-    # criando intencia do objeto de mensagem
+    # criando instancia do objeto de mensagem
     msg = MIMEMultipart()
 
     msg['From'] = EMAIL_QUE_IRA_DISPARAR
