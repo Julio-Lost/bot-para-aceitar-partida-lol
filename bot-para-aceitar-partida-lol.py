@@ -16,27 +16,24 @@ def enviar_email_de_notificacao(email_de_disparo, senha_do_email_de_disparo, ema
     if(nao_deseja_receber_email):
         return
 
-    # Informações de disparo do email:
     EMAIL_QUE_IRA_DISPARAR = email_de_disparo
     SENHA_DO_EMAIL_DE_DISPARO = senha_do_email_de_disparo
     MENSAGEM = "Estou passando para avisar, que sua fila foi aceita."
 
-    # criando instancia do objeto de mensagem
     msg = MIMEMultipart()
 
     msg['From'] = EMAIL_QUE_IRA_DISPARAR
     msg['To'] = email_destinatario
     msg['Subject'] = "LOL - Partida Encontrada"
 
-    # adicionando mensagem ao corpo
     msg.attach(MIMEText(MENSAGEM, 'plain'))
 
     contexto = ssl.create_default_context()
     try:
         with smtplib.SMTP("smtp.gmail.com", 587) as servidor:
-            servidor.ehlo()  # Pode ser omitido
+            servidor.ehlo()
             servidor.starttls(context=contexto)
-            servidor.ehlo()  # Pode ser omitido
+            servidor.ehlo()
             servidor.login(EMAIL_QUE_IRA_DISPARAR, SENHA_DO_EMAIL_DE_DISPARO)
             servidor.sendmail(msg['From'], msg['To'], msg.as_string())
     except:
