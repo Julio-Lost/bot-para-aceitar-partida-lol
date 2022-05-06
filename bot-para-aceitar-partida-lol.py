@@ -16,17 +16,15 @@ def enviar_email_de_notificacao(email_de_disparo, senha_do_email_de_disparo, ema
     if(nao_deseja_receber_email):
         return
 
-    EMAIL_QUE_IRA_DISPARAR = email_de_disparo
-    SENHA_DO_EMAIL_DE_DISPARO = senha_do_email_de_disparo
-    MENSAGEM = "Estou passando para avisar, que sua fila foi aceita."
+    mensagem = "Estou passando para avisar, que sua fila foi aceita."
 
     msg = MIMEMultipart()
 
-    msg['From'] = EMAIL_QUE_IRA_DISPARAR
+    msg['From'] = email_de_disparo
     msg['To'] = email_destinatario
     msg['Subject'] = "LOL - Partida Encontrada"
 
-    msg.attach(MIMEText(MENSAGEM, 'plain'))
+    msg.attach(MIMEText(mensagem, 'plain'))
 
     contexto = ssl.create_default_context()
     try:
@@ -34,7 +32,7 @@ def enviar_email_de_notificacao(email_de_disparo, senha_do_email_de_disparo, ema
             servidor.ehlo()
             servidor.starttls(context=contexto)
             servidor.ehlo()
-            servidor.login(EMAIL_QUE_IRA_DISPARAR, SENHA_DO_EMAIL_DE_DISPARO)
+            servidor.login(email_de_disparo, senha_do_email_de_disparo)
             servidor.sendmail(msg['From'], msg['To'], msg.as_string())
     except:
         print('Não foi possível enviar email de notificaçao para "' +
@@ -52,7 +50,7 @@ def verificar_tela():
     return False
 
 
-def cadastrar_email_que_ira_enviar_notificao(email_de_disparo, senha_do_email_de_disparo, email_destinatario):
+def disparar_email(email_de_disparo, senha_do_email_de_disparo, email_destinatario):
     nao_possui_informacao_de_envio = len(
         email_de_disparo) == 0 and len(senha_do_email_de_disparo) == 0
     if(nao_possui_informacao_de_envio):
@@ -62,26 +60,25 @@ def cadastrar_email_que_ira_enviar_notificao(email_de_disparo, senha_do_email_de
         email_de_disparo, senha_do_email_de_disparo, email_destinatario)
 
 
-def verificar_se_possui_dados_de_disparo_e_de_envio():
-    email_de_disparo = input(
-        'Seu email que irá disparar a notificação(opcional): ').strip()
-
-    informou_email_de_disparo = len(email_de_disparo) != 0
-    if(informou_email_de_disparo):
-        senha_do_email_de_disparo = input(
-            'Senha do seu email que irá disparar a notificação(opcional): ').strip()
-        email_destinatario = input(
-            'Seu email que irá receber a notificação(opcional): ').strip()
-        return email_de_disparo, senha_do_email_de_disparo, email_destinatario
+def nao_esta_vazio(string):
+    return bool(string and not string.isspace())
 
 
 def main():
-    email_de_disparo, senha_do_email_de_disparo, email_destinatario = verificar_se_possui_dados_de_disparo_e_de_envio()
+    email_de_disparo = input(
+        'Email que irá disparar a notificação(opcional): ').strip()
 
+    if(nao_esta_vazio(email_de_disparo)):
+        senha_do_email_de_disparo = input(
+            'Senha do email que irá disparar a notificação(opcional): ').strip()
+        email_destinatario = input(
+            'Email que irá receber a notificação(opcional): ').strip()
+
+    print("Estamos de olho para você... ")
     while True:
         encontrou_o_botao_na_tela = verificar_tela()
         if(encontrou_o_botao_na_tela):
-            cadastrar_email_que_ira_enviar_notificao(
+            disparar_email(
                 email_de_disparo, senha_do_email_de_disparo, email_destinatario)
             sleep(6)
 
