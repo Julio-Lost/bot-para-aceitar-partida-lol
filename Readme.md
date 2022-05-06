@@ -27,7 +27,3 @@ obs: Pode acontecer também de precisar da seguinte instalação:
 Para o disparo de email, você irá precisa habilitar para que apps menos seguros façam o acesso:
 
 [Documentação google](https://support.google.com/accounts/answer/6010255#zippy=%2Cse-a-op%C3%A7%C3%A3o-acesso-a-app-menos-seguro-estiver-desativada-para-sua-conta%2Cse-a-op%C3%A7%C3%A3o-acesso-a-app-menos-seguro-estiver-ativada-para-sua-conta)
-
-## Executável
-
-Também gerei um executável para quem quiser apenas utilizar =D
