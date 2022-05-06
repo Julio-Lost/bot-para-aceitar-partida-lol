@@ -4,7 +4,9 @@ O intuito desse projeto é aprendizado e claro criar um bot para automatizar o a
 
 ## Características
 
-O projeto possui as seguintes caracteristicas: Automaticamente aceitar a partida e disparar a notificação para o usuario.
+O projeto possui as seguintes caracteristicas: 
+- Automaticamente aceitar a partida
+- Disparar a notificação para o usuario.
 
 ## Rodando a aplicação
 
